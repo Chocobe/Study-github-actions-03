@@ -1,0 +1,16 @@
+FROM node:18 AS installer
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+RUN yarn install
+
+
+
+FROM node:18-alpine
+WORKDIR /app
+EXPOSE 8008
+
+COPY --from=installer /app/node_modules ./node_modules
+COPY . .
+
+CMD ["yarn", "dev"]
