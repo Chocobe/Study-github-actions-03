@@ -1,0 +1,22 @@
+name: Miles Github Actions CI/CD
+run-name: Practice Github Actions with ${{ github.action }}
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Deploy-My-Frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 작업 브랜치 준비
+        uses: actions/checkout@v4
+
+      - name: Nodejs 환경 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: 프로젝트 빌드
+        run: |-
+          yarn install
