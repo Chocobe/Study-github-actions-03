@@ -22,3 +22,8 @@ jobs:
         run: |-
           yarn install
           echo "설치 완료"
+
+      - name: Start to build
+        run: |-
+          yarn build
+          echo "빌드 완료"
