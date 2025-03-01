@@ -1,0 +1,24 @@
+name: Miles Tag CI/CD
+run-name: Tag 를 사용하여 ${{ github.action }} 테스트
+
+on:
+  push:
+    tags:
+      - prod/*
+
+jobs:
+  Deploy-prod-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 대상 브랜치로 checkout
+        uses: actions/checkout@v4
+
+      - name: Nodejs 환경 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Start to install
+        run: |-
+          yarn install
+          echo "설치 완료"
