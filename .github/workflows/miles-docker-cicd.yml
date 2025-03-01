@@ -1,0 +1,30 @@
+name: Miles Docker Push CI/CD
+
+on:
+  push:
+    tags:
+      - docker/*
+
+jobs:
+  Project-CI-CD:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 브랜치 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 환경 설치
+        uses: actions/setup-node@v4
+
+      - name: 프로젝트 의존성 설치
+        run: |-
+          yarn install
+          echo "🛠️ 설치 완료"
+
+      - name: 유닛 테스트
+        run: |-
+          yarn test --coverage
+          echo "🧪 유닛 테스트 통과"
+
+      - name: 프로젝트 빌드
+        run: |-
+          yarn build
