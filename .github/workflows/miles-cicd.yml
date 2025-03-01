@@ -23,5 +23,5 @@ jobs:
 
       - name: 유닛 테스트
         run: |-
-          yarn test
+          yarn test --coverage
 
