@@ -20,3 +20,8 @@ jobs:
       - name: 프로젝트 빌드
         run: |-
           yarn install
+
+      - name: 유닛 테스트
+        run: |-
+          yarn test
+
