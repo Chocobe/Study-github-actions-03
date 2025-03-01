@@ -40,3 +40,12 @@ jobs:
     steps:
       - name: Docker 환경 준비
         uses: docker/setup-buildx-action@v3
+
+      - name: Docker Image 빌드
+        run: |-
+          docker image build \
+            -f Dockerfile.dev \
+            -t chocobe/github-actions:v3 \
+            .
+          echo "🤗 Docker image 빌드 성공"
+
