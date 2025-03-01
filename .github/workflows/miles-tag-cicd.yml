@@ -47,7 +47,7 @@ jobs:
       - name: Docker Image 빌드
         run: |-
           docker image build \
-            -f Dockerfile.dev \
+            -f docker/Dockerfile.dev \
             -t chocobe/github-actions:v3 \
-            ./docker
+            .
           echo "🤗 Docker image 빌드 성공"
