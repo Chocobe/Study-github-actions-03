@@ -51,3 +51,4 @@ jobs:
           file: docker/Dockerfile.dev
           tags: chocobe/github-actions:v5
           context: .
+          push: true
